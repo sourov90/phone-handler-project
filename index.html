@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>phone handeler projects</title>
+    <link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    
 </head>
 <body>
-    <header>
-
+    <header class="border-2 bg-black p-4 text-center">
+        <input id="text-input" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+        <button onclick="searchOnClick()" class="text-white bg-red-500 p-3 rounded">search</button>
     </header>
-    <main>
+    <main class="sourov" id="display">
 
     </main>
     <footer>
-        
+
     </footer>
     <script src="js/index.js"></script>
 </body>
