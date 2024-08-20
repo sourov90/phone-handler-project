@@ -14,11 +14,21 @@
         <input id="text-input" type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
         <button onclick="searchOnClick()" class="text-white bg-red-500 p-3 rounded">search</button>
     </header>
+    <div id="loding-spinner" class="hidden" >
+        <span class="loading loading-spinner text-primary"></span>
+        <span class="loading loading-spinner text-secondary"></span>
+        <span class="loading loading-spinner text-accent"></span>
+        <span class="loading loading-spinner text-neutral"></span>
+        <span class="loading loading-spinner text-info"></span>
+        <span class="loading loading-spinner text-success"></span>
+        <span class="loading loading-spinner text-warning"></span>
+        <span class="loading loading-spinner text-error"></span>
+    </div>
     <main class="sourov" id="display">
 
     </main>
     <footer>
-
+        <button onclick="handleShowAllbtn()" id="showBtn" class="btn btn-primary hidden">Show All btn</button>
     </footer>
     <script src="js/index.js"></script>
 </body>

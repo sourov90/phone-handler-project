@@ -1,14 +1,26 @@
-const resul = async (dat) => {
+const resul = async (dat,showBtn) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${dat}`);
   const data = await res.json();
-  displayData(data)
+  displayData(data,showBtn)
 }
-
-const displayData = (data) => {
-  const dat = data.data
+// const spinner = document.getElementById('loding-spinner')
+const displayData = (data,showBtn) => {
+  let dat = data.data
+  
   const container = document.getElementById('display');
   container.innerText=''
+  const btn = document.getElementById('showBtn')
+  if(dat.length > 20 && !showBtn){
+    btn.classList.remove('hidden')
+  }else{
+    btn.classList.add('hidden')
+  }
+  if(!showBtn){
+   dat=dat.slice(0,5)
+ }
+  
   for (let i of dat) {
+    
     const div = document.createElement('div')
     div.innerHTML = `
     <div class="card bg-base-100 w-96 shadow-xl">
@@ -25,15 +37,31 @@ const displayData = (data) => {
     </div>
   </div>
 </div>`
+
     container.appendChild(div)
   }
-
+lodingSpinner(false)
 
 }
 
-function searchOnClick() {
+function searchOnClick(showbtn) {
   const text = document.getElementById("text-input").value;
-  resul(text)
+  resul(text,showbtn)
+  lodingSpinner(true)
 }
 
-// resul()
+function lodingSpinner(isLoding){
+  const spiner = document.getElementById('loding-spinner')
+  if(isLoding){
+    spiner.classList.remove('hidden')
+  }else{
+    spiner.classList.add('hidden')
+  }
+}
+
+
+
+
+function handleShowAllbtn(){
+  searchOnClick(true)
+}
